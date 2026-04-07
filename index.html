@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Solari | Estrategia y Control de Gestión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Pablo Solari | Estrategia y Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { 
             --bg-body: #0a0a0a; 
             --bg-card: #141414; 
             --accent: #007bff; 
-            --border: #2a2a2a; 
-            --text-main: #f0f0f0;
-            --text-muted: #888;
+            --border: #333; 
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,8 +21,9 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            line-height: 1.4;
-            padding: 40px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .bento-grid {
@@ -30,154 +31,104 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .bento-item {
             background-color: var(--bg-card);
             border-radius: 16px;
             border: 1px solid var(--border);
-            padding: 40px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .bento-item:hover {
-            border-color: #444;
-        }
-
-        /* Bloque Principal: Identidad y Propuesta */
-        .item-hero {
-            grid-column: 1 / 3;
-            justify-content: center;
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+        /* Bloque Principal */
+        .item-hero { grid-column: 1 / 3; }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
-            line-height: 0.85;
-            letter-spacing: -4px;
-            margin-bottom: 30px;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #fff;
         }
 
         .proposal-text {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 300;
-            color: #ccc;
+            color: var(--text-muted);
             line-height: 1.6;
-            max-width: 600px;
-        }
-
-        .proposal-text strong {
-            color: #fff;
-            font-weight: 500;
         }
 
         /* Bloque Video */
-        .item-video {
-            grid-column: 3 / 4;
-            padding: 20px;
-            justify-content: center;
-        }
-
-        .video-wrapper {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #333;
-            background: #000;
-        }
-
+        .item-video { grid-column: 3 / 4; justify-content: center; }
+        .video-wrapper { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #444; }
         video { width: 100%; display: block; }
 
-        /* Bloque Power BI Showcase */
-        .item-bi {
-            grid-column: 1 / 4;
-            padding: 30px;
-            text-align: center;
-        }
+        /* Bloque Imagen BI */
+        .item-bi { grid-column: 1 / 4; align-items: center; }
+        .bi-img { width: 100%; max-width: 900px; border-radius: 8px; border: 1px solid #444; margin-top: 15px; }
 
-        .bi-img {
-            width: 100%;
-            max-width: 1000px;
-            border-radius: 8px;
-            margin: 0 auto 20px;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        /* Bloques de Servicios */
+        .service-card { padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: #1a1a1a; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
+        .service-card p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Bloque Servicios */
-        .services-container {
-            grid-column: 1 / 4;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+        .cta { grid-column: 1 / 4; text-align: center; padding: 20px; }
+        .btn { padding: 15px 30px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.8rem; }
 
-        .service-card {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-        }
-
-        .service-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Botón de Acción */
-        .cta-container {
-            grid-column: 1 / 4;
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 20px 50px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            color: #fff;
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 900px) {
-            body { padding: 20px; }
+        @media (max-width: 800px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .item-hero, .item-video, .item-bi, .services-container { grid-column: 1 / 2; }
-            .services-container { grid-template-columns: 1fr; }
-            h1 { font-size: 4rem; }
+            .item-hero, .item-video, .item-bi { grid-column: 1 / 2; }
         }
     </style>
+</head>
+<body>
+
+    <div class="bento-grid">
+        
+        <section class="bento-item item-hero">
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">ESTRATEGIA & CONTROL</p>
+            <h1>Pablo Solari.</h1>
+            <p class="proposal-text">
+                Profesionalizo el <strong>control de tu empresa</strong> para que el crecimiento no se convierta en caos. 
+                Aporto el <strong>rigor técnico</strong> necesario para liderar una operación rentable y previsible[cite: 5, 6].
+            </p>
+        </section>
+
+        <section class="bento-item item-video">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section class="bento-item item-bi">
+            <h3 style="font-family: 'Montserrat'; font-size: 1rem; margin-bottom: 10px;">BUSINESS INTELLIGENCE</h3>
+            <img src="image_6cc62d.png" alt="Reporte" class="bi-img">
+        </section>
+
+        <div class="service-card">
+            <h3>Estrategia de Capital</h3>
+            <p>Análisis de flujos de caja y rentabilidad TIR/VAN[cite: 10].</p>
+        </div>
+        <div class="service-card">
+            <h3>Reporting</h3>
+            <p>Información crítica mensual para toma de decisiones[cite: 20].</p>
+        </div>
+        <div class="service-card">
+            <h3>Control Interno</h3>
+            <p>Mapeo de procesos y mapa de riesgos[cite: 15, 38].</p>
+        </div>
+
+        <div class="cta">
+            <a href="https://wa.me/5493512589176" class="btn">Agendar Diagnóstico</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
