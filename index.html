@@ -21,7 +21,7 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
         }
@@ -51,8 +51,8 @@
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 20px;
-            color: #fff;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
         }
 
         .proposal-text {
@@ -60,28 +60,62 @@
             font-weight: 300;
             color: var(--text-muted);
             line-height: 1.6;
+            max-width: 600px;
         }
 
         /* Bloque Video */
-        .item-video { grid-column: 3 / 4; justify-content: center; }
-        .video-wrapper { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #444; }
+        .item-video { grid-column: 3 / 4; justify-content: center; align-items: center; }
+        .video-wrapper { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #444; background: #000; }
         video { width: 100%; display: block; }
 
-        /* Bloque Imagen BI */
-        .item-bi { grid-column: 1 / 4; align-items: center; }
-        .bi-img { width: 100%; max-width: 900px; border-radius: 8px; border: 1px solid #444; margin-top: 15px; }
+        /* --- NUEVO CONTENEDOR DE TABLERO (ESTILO SOFTWARE) --- */
+        .item-dashboard {
+            grid-column: 1 / 4;
+            padding: 0; /* Quitamos padding para que la "ventana" ocupe todo */
+            background: none;
+            border: none;
+        }
 
-        /* Bloques de Servicios */
-        .service-card { padding: 20px; border-radius: 12px; border: 1px solid var(--border); background: #1a1a1a; }
-        .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
-        .service-card p { font-size: 0.85rem; color: var(--text-muted); }
+        .window-frame {
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid #444;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
 
-        .cta { grid-column: 1 / 4; text-align: center; padding: 20px; }
-        .btn { padding: 15px 30px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.8rem; }
+        .window-header {
+            background: #2d2d2d;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-        @media (max-width: 800px) {
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        .window-title { margin-left: 10px; font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        .window-content img {
+            width: 100%;
+            display: block;
+            filter: saturate(1.1); /* Le damos un poco más de vida al color del BI */
+        }
+
+        /* Servicios */
+        .service-card { padding: 25px; border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 12px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+        .cta { grid-column: 1 / 4; text-align: center; padding: 40px 0; }
+        .btn { padding: 18px 40px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn:hover { background: var(--accent); color: #fff; }
+
+        @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .item-hero, .item-video, .item-bi { grid-column: 1 / 2; }
+            .item-hero, .item-video, .item-dashboard { grid-column: 1 / 2; }
         }
     </style>
 </head>
@@ -90,11 +124,11 @@
     <div class="bento-grid">
         
         <section class="bento-item item-hero">
-            <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">ESTRATEGIA & CONTROL</p>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; margin-bottom: 15px; font-size: 0.8rem;">ESTRATEGIA & CONTROL DE GESTIÓN</p>
             <h1>Pablo Solari.</h1>
             <p class="proposal-text">
                 Profesionalizo el <strong>control de tu empresa</strong> para que el crecimiento no se convierta en caos. 
-                Aporto el <strong>rigor técnico</strong> necesario para liderar una operación rentable y previsible[cite: 5, 6].
+                Aporto el <strong>rigor técnico</strong> necesario para liderar una operación rentable y previsible.
             </p>
         </section>
 
@@ -104,24 +138,34 @@
                     <source src="video.mp4" type="video/mp4">
                 </video>
             </div>
+            <p style="text-align: center; font-size: 0.65rem; color: #555; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">Mensaje Directo</p>
         </section>
 
-        <section class="bento-item item-bi">
-            <h3 style="font-family: 'Montserrat'; font-size: 1rem; margin-bottom: 10px;">BUSINESS INTELLIGENCE</h3>
-            <img src="image_6cc62d.png" alt="Reporte" class="bi-img">
+        <section class="bento-item item-dashboard">
+            <div class="window-frame">
+                <div class="window-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span class="window-title">Análisis de Rentabilidad y Ventas - Business Intelligence</span>
+                </div>
+                <div class="window-content">
+                    <img src="image_6cc62d.png" alt="Reporte de Gestión">
+                </div>
+            </div>
         </section>
 
         <div class="service-card">
             <h3>Estrategia de Capital</h3>
-            <p>Análisis de flujos de caja y rentabilidad TIR/VAN[cite: 10].</p>
+            <p>Análisis profundo de flujos de caja y rentabilidad (TIR/VAN) para asegurar la liquidez.</p>
         </div>
         <div class="service-card">
-            <h3>Reporting</h3>
-            <p>Información crítica mensual para toma de decisiones[cite: 20].</p>
+            <h3>Reporting Crítico</h3>
+            <p>Sistemas de información mensual diseñados para la alta dirección y toma de decisiones.</p>
         </div>
         <div class="service-card">
             <h3>Control Interno</h3>
-            <p>Mapeo de procesos y mapa de riesgos[cite: 15, 38].</p>
+            <p>Mapeo de procesos y reducción de riesgos operacionales bajo estándares internacionales.</p>
         </div>
 
         <div class="cta">
