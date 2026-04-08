@@ -48,7 +48,7 @@
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
             line-height: 1;
             margin-bottom: 25px;
@@ -56,7 +56,7 @@
         }
 
         .proposal-text {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 300;
             color: var(--text-muted);
             line-height: 1.6;
@@ -68,12 +68,12 @@
         .video-wrapper { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #444; background: #000; }
         video { width: 100%; display: block; }
 
-        /* Contenedor de Tablero Estilo Software */
-        .item-dashboard {
+        /* --- SECCIÓN DE DOBLE DASHBOARD --- */
+        .item-dashboards-container {
             grid-column: 1 / 4;
-            padding: 0;
-            background: none;
-            border: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+            gap: 20px;
         }
 
         .window-frame {
@@ -81,41 +81,45 @@
             border-radius: 12px;
             border: 1px solid #444;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
         }
 
         .window-header {
             background: #2d2d2d;
-            padding: 12px 18px;
+            padding: 10px 15px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
         .dot.red { background: #ff5f56; }
         .dot.yellow { background: #ffbd2e; }
         .dot.green { background: #27c93f; }
-        .window-title { margin-left: 15px; font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .window-title { margin-left: 10px; font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
 
         .window-content img {
             width: 100%;
+            height: auto;
             display: block;
-            filter: contrast(1.05) saturate(1.1);
+            filter: contrast(1.05);
         }
 
         /* Cards de Servicios */
         .service-card { padding: 30px; border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); }
-        .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 15px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; }
-        .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
-        .cta { grid-column: 1 / 4; text-align: center; padding: 40px 0; }
-        .btn { padding: 20px 45px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
-        .btn:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
+        .cta { grid-column: 1 / 4; text-align: center; padding: 30px 0; }
+        .btn { padding: 18px 40px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
 
         @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .item-hero, .item-video, .item-dashboard { grid-column: 1 / 2; }
+            .item-hero, .item-video, .item-dashboards-container { grid-column: 1 / 2; }
+            .item-dashboards-container { grid-template-columns: 1fr; } /* En móvil uno abajo del otro */
         }
     </style>
 </head>
@@ -124,7 +128,7 @@
     <div class="bento-grid">
         
         <section class="bento-item item-hero">
-            <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; margin-bottom: 15px; font-size: 0.85rem;">ESTRATEGIA & CONTROL DE GESTIÓN</p>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; margin-bottom: 15px; font-size: 0.8rem;">ESTRATEGIA & CONTROL DE GESTIÓN</p>
             <h1>Pablo Solari.</h1>
             <p class="proposal-text">
                 Profesionalizo el <strong>control de tu empresa</strong> para que el crecimiento no se convierta en caos. 
@@ -138,34 +142,41 @@
                     <source src="video.mp4" type="video/mp4">
                 </video>
             </div>
-            <p style="text-align: center; font-size: 0.65rem; color: #555; margin-top: 12px; text-transform: uppercase; letter-spacing: 1px;">Mensaje Directo</p>
         </section>
 
-        <section class="bento-item item-dashboard">
+        <div class="item-dashboards-container">
             <div class="window-frame">
                 <div class="window-header">
-                    <div class="dot red"></div>
-                    <div class="dot yellow"></div>
-                    <div class="dot green"></div>
-                    <span class="window-title">Business Intelligence - Panel de Control Estratégico</span>
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                    <span class="window-title">Análisis de Rentabilidad</span>
                 </div>
                 <div class="window-content">
-                    <img src="image_6cc62d.png" alt="Dashboard de Gestión Pablo Solari">
+                    <img src="image_6cc62d.png" alt="Dashboard 1">
                 </div>
             </div>
-        </section>
+
+            <div class="window-frame">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                    <span class="window-title">Control de Gestión</span>
+                </div>
+                <div class="window-content">
+                    <img src="image_6cc62d.png" alt="Dashboard 2">
+                </div>
+            </div>
+        </div>
 
         <div class="service-card">
             <h3>Estrategia de Capital</h3>
-            <p>Optimización de flujos de fondos y análisis de rentabilidad estratégica para asegurar la liquidez del negocio.</p>
+            <p>Optimización de flujos de fondos y análisis de rentabilidad estratégica.</p>
         </div>
         <div class="service-card">
             <h3>Reporting Crítico</h3>
-            <p>Diseño de sistemas de información mensual para la alta dirección, transformando datos en decisiones.</p>
+            <p>Diseño de sistemas de información mensual para la alta dirección.</p>
         </div>
         <div class="service-card">
             <h3>Control Interno</h3>
-            <p>Mapeo de procesos y reducción de riesgos operacionales para profesionalizar la estructura organizacional.</p>
+            <p>Mapeo de procesos y reducción de riesgos operacionales.</p>
         </div>
 
         <div class="cta">
