@@ -21,11 +21,45 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            padding: 40px 20px;
+            padding: 100px 20px 40px; /* Aumentamos padding superior para la navbar */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
+        /* --- NAVBAR SUPERIOR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end; /* Alinea el botón a la derecha */
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-nav {
+            padding: 12px 25px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* --- GRID BENTO --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -43,7 +77,6 @@
             flex-direction: column;
         }
 
-        /* Bloque Principal */
         .item-hero { grid-column: 1 / 3; }
 
         h1 {
@@ -63,16 +96,14 @@
             max-width: 650px;
         }
 
-        /* Bloque Video */
         .item-video { grid-column: 3 / 4; justify-content: center; align-items: center; }
         .video-wrapper { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #444; background: #000; }
         video { width: 100%; display: block; }
 
-        /* --- SECCIÓN DE DOBLE DASHBOARD --- */
         .item-dashboards-container {
             grid-column: 1 / 4;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
@@ -82,8 +113,6 @@
             border: 1px solid #444;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
         }
 
         .window-header {
@@ -102,31 +131,35 @@
 
         .window-content img {
             width: 100%;
-            height: auto;
             display: block;
-            filter: contrast(1.05);
+            filter: blur(2px) contrast(1.05);
+            transition: 0.5s;
         }
 
-        /* Cards de Servicios */
+        .window-frame:hover .window-content img {
+            filter: blur(0) contrast(1.05);
+        }
+
         .service-card { padding: 30px; border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); }
         .service-card h3 { font-family: 'Montserrat', sans-serif; color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; }
         .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
-        .cta { grid-column: 1 / 4; text-align: center; padding: 30px 0; }
-        .btn { padding: 18px 40px; background: #fff; color: #000; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
-        .btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
-
         @media (max-width: 900px) {
+            body { padding-top: 80px; }
+            .navbar { padding: 15px 20px; }
             .bento-grid { grid-template-columns: 1fr; }
             .item-hero, .item-video, .item-dashboards-container { grid-column: 1 / 2; }
-            .item-dashboards-container { grid-template-columns: 1fr; } /* En móvil uno abajo del otro */
+            .item-dashboards-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <a href="https://wa.me/5493512589176" class="btn-nav" target="_blank">Agendar Diagnóstico —</a>
+    </nav>
+
     <div class="bento-grid">
-        
         <section class="bento-item item-hero">
             <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; margin-bottom: 15px; font-size: 0.8rem;">ESTRATEGIA & CONTROL DE GESTIÓN</p>
             <h1>Pablo Solari.</h1>
@@ -148,20 +181,20 @@
             <div class="window-frame">
                 <div class="window-header">
                     <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                    <span class="window-title">Análisis de Rentabilidad</span>
+                    <span class="window-title">Caso de Éxito: Manufactura</span>
                 </div>
                 <div class="window-content">
-                    <img src="image_6cc62d.png" alt="Dashboard 1">
+                    <img src="image_6cc62d.png" alt="Dashboard Confidencial">
                 </div>
             </div>
 
             <div class="window-frame">
                 <div class="window-header">
                     <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                    <span class="window-title">Control de Gestión</span>
+                    <span class="window-title">Control de Gestión Estratégico</span>
                 </div>
                 <div class="window-content">
-                    <img src="image_6cc62d.png" alt="Dashboard 2">
+                    <img src="image_6cc62d.png" alt="Dashboard Confidencial">
                 </div>
             </div>
         </div>
@@ -178,11 +211,6 @@
             <h3>Control Interno</h3>
             <p>Mapeo de procesos y reducción de riesgos operacionales.</p>
         </div>
-
-        <div class="cta">
-            <a href="https://wa.me/5493512589176" class="btn" target="_blank">Agendar Diagnóstico —</a>
-        </div>
-
     </div>
 
 </body>
