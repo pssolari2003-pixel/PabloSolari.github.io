@@ -54,6 +54,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
+        /* HERO SECCIÓN */
         .hero { grid-column: 1 / 4; }
         .hero h1 { font-family: 'Montserrat'; font-size: 38px; letter-spacing: -2px; line-height: 1; margin-bottom: 5px; }
         .hero p.sub { font-weight: 600; color: #475569; font-size: 13px; margin-bottom: 10px; }
@@ -63,29 +64,25 @@
             border-top: 1px solid #cbd5e1; padding-top: 10px;
         }
 
-        /* EFECTO ZOOM EN PILARES */
+        /* PILARES CON ZOOM */
         .pilar {
-            background: white; 
-            padding: 12px; 
-            border-radius: 10px;
+            background: white; padding: 12px; border-radius: 10px;
             border-left: 5px solid var(--emerald);
             position: relative;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             z-index: 1;
         }
-
         .pilar:hover {
-            transform: scale(1.03); /* Se agranda un poquito menos que los tableros para no encimarse */
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transform: scale(1.03);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
             z-index: 10;
         }
-
         .pilar i { position: absolute; top: 12px; right: 12px; font-size: 14px; opacity: 0.8; }
         .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 4px; padding-right: 25px; }
         .pilar p { font-size: 11px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
 
-        /* VIDEO */
+        /* VIDEO SIDEBAR */
         .sidebar { grid-column: 4 / 5; }
         .video-box { 
             background: #000; border-radius: 15px; overflow: hidden; 
@@ -103,28 +100,21 @@
 
         /* DASHBOARDS CON ZOOM */
         .dash-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
         .window { 
-            background: white; 
-            border-radius: 15px; 
-            height: 125px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white; border-radius: 15px; height: 125px; overflow: hidden; 
+            border: 1px solid var(--border); position: relative;
+            cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
             z-index: 1;
         }
-
         .window:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             z-index: 10;
         }
-
         .window img { width: 100%; height: 100%; object-fit: cover; }
         .window .label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.8); color: white; padding: 4px; font-size: 9px; font-weight: 700; text-align: center; }
 
+        /* TRAYECTORIA Y TAGS */
         .trayectoria { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; }
         .trayectoria b { font-size: 34px; color: var(--emerald); font-family: 'Montserrat'; line-height: 1; }
         .trayectoria span { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #475569; }
@@ -135,10 +125,55 @@
         @media (max-width: 850px) {
             .container { grid-template-columns: 1fr; }
             .hero, .sidebar, .dash-row, .trayectoria, .tags { grid-column: 1 / -1; }
-            .window:hover, .pilar:hover { transform: none; } /* Desactivo zoom en móvil */
+            .window:hover, .pilar:hover { transform: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="
+    <nav class="navbar">
+        <a href="https://wa.me/5493512589176" class="btn-cta" target="_blank">Agendar Diagnóstico</a>
+    </nav>
+
+    <div class="container">
+        <div class="card hero">
+            <h1>Pablo Solari.</h1>
+            <p class="sub">Estrategia y Control de Gestión para Empresas.</p>
+            <div class="pilares-grid">
+                <div class="pilar">
+                    <i class="fas fa-sitemap"></i>
+                    <h3>Mapeo de Procesos</h3>
+                    <p>Identificación de redundancias y puntos críticos para optimizar la gestión.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-file-excel" style="color: var(--excel)"></i>
+                    <h3>Control Interno y Sistemas</h3>
+                    <p>Herramientas digitales para eliminar errores manuales en finanzas.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-chart-line" style="color: var(--bi)"></i>
+                    <h3>Inteligencia de Negocios</h3>
+                    <p>Reporting estratégico con Power BI para monitoreo en tiempo real.</p>
+                </div>
+                <div class="pilar">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Control y Gestión</h3>
+                    <p>Evaluación de costos, cash flow e inversiones y cumplimiento operativo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="card" style="padding: 10px;">
+                <div class="video-box">
+                    <video autoplay muted loop playsinline controls>
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a href="https://www.linkedin.com/in/solari-pablo/" class="link-ln" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="dash-row">
+            <div class="window">
+                <img src="
