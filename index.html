@@ -106,6 +106,9 @@
         
         .tag { font-size: 0.6rem; background: #222; padding: 3px 8px; border-radius: 4px; display: inline-block; margin: 2px; border: 1px solid #333; color: var(--muted); }
 
+        .badges-container { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .badges-container img { height: 25px; border-radius: 4px; }
+
         @media (max-width: 1000px) {
             .bento-grid { grid-template-columns: 1fr; }
             .item-hero, .item-video, .item-dashboards, .item-services, .item-info { grid-column: 1 / -1; }
@@ -123,7 +126,15 @@
         <section class="bento-item item-hero">
             <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 0.7rem;">ESTRATEGIA & CONTROL</p>
             <h1>Pablo Solari.</h1>
-            <p class="proposal-text">Profesionalizo el <strong>control de tu empresa</strong> para que el crecimiento no se convierta en caos. Rigor técnico para una operación rentable.</p>
+            <p class="proposal-text">
+                Transformo la <strong>complejidad operativa en claridad estratégica</strong>. 
+                Utilizo datos para profesionalizar el control de tu empresa y asegurar una operación rentable.
+            </p>
+            <div class="badges-container">
+                <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=microsoftpowerbi&logoColor=black" alt="Power BI">
+                <img src="https://img.shields.io/badge/AppSheet-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="AppSheet">
+                <img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="Excel">
+            </div>
         </section>
 
         <section class="bento-item item-video">
@@ -144,24 +155,10 @@
         </div>
 
         <div class="item-services">
-            <div class="mini-card"><h3>Estrategia de Capital</h3><p>Flujos y rentabilidad estratégica.</p></div>
-            <div class="mini-card"><h3>Reporting Crítico</h3><p>Información para la alta dirección.</p></div>
-            <div class="mini-card"><h3>Control Interno</h3><p>Procesos y gestión de riesgos.</p></div>
+            <div class="mini-card"><h3>Optimización de Procesos</h3><p>Eliminación de tareas manuales con AppSheet.</p></div>
+            <div class="mini-card"><h3>Inteligencia de Datos</h3><p>Tableros dinámicos en Power BI para control de costos.</p></div>
+            <div class="mini-card"><h3>Visibilidad Estratégica</h3><p>Determinación de rentabilidad y puntos de equilibrio real.</p></div>
         </div>
 
         <div class="item-info">
-            <div class="sub-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                <span style="font-size: 1.5rem; font-weight: 900; line-height: 1;">+18 años</span>
-                <span style="font-size: 0.6rem; color: var(--accent); text-transform: uppercase; margin-top: 5px;">Trayectoria Corporativa</span>
-            </div>
-            <div class="sub-card">
-                <h3 style="font-size: 0.75rem; margin-bottom: 8px; font-family: 'Montserrat';">Metodología</h3>
-                <span class="tag">Diagnóstico</span> <span class="tag">Procesos</span> 
-                <span class="tag">Tableros BI</span> <span class="tag">Resultados</span>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+            <div class="sub-card" style="text-align
