@@ -23,7 +23,7 @@
             background-color: var(--bg);
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
-            padding: 70px 20px 20px;
+            padding: 80px 20px 20px;
             line-height: 1.2;
         }
 
@@ -37,8 +37,8 @@
 
         .btn-cta {
             background: var(--text-dark); color: white;
-            padding: 8px 16px; border-radius: 8px;
-            text-decoration: none; font-weight: 700; font-size: 11px;
+            padding: 10px 20px; border-radius: 8px;
+            text-decoration: none; font-weight: 700; font-size: 12px;
             text-transform: uppercase;
         }
 
@@ -49,81 +49,76 @@
 
         .card {
             background: var(--card); border-radius: 20px;
-            padding: 15px; 
+            padding: 20px; 
             border: 1px solid var(--border);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
+        /* CABECERA PRINCIPAL */
         .hero { grid-column: 1 / 4; }
         .hero h1 { font-family: 'Montserrat'; font-size: 38px; letter-spacing: -2px; line-height: 1; margin-bottom: 5px; }
-        .hero p.sub { font-weight: 600; color: #475569; font-size: 13px; margin-bottom: 10px; }
+        .hero p.sub { font-weight: 600; color: #475569; font-size: 14px; margin-bottom: 15px; }
 
         .pilares-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-            border-top: 1px solid #cbd5e1; padding-top: 10px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            border-top: 1px solid #cbd5e1; padding-top: 15px;
         }
 
         .pilar {
-            background: white; padding: 12px; border-radius: 10px;
+            background: white; padding: 15px; border-radius: 12px;
             border-left: 5px solid var(--emerald);
             position: relative;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
         .pilar:hover { transform: translateY(-3px); }
-        .pilar i { position: absolute; top: 12px; right: 12px; font-size: 16px; opacity: 0.9; }
-        .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 4px; padding-right: 25px; }
-        .pilar p { font-size: 11px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+        .pilar i { position: absolute; top: 15px; right: 15px; font-size: 16px; opacity: 0.8; }
+        .pilar h3 { font-size: 10px; color: var(--emerald); text-transform: uppercase; margin-bottom: 5px; }
+        .pilar p { font-size: 11px; font-weight: 700; color: var(--text-dark); line-height: 1.3; }
 
+        /* VIDEO */
         .sidebar { grid-column: 4 / 5; }
         .video-box { 
             background: #000; border-radius: 15px; overflow: hidden; 
             aspect-ratio: 9/16; width: 100%; border: 1px solid var(--border);
-            max-height: 320px; 
+            max-height: 350px; 
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
         .link-ln {
-            display: block; text-align: center; margin-top: 8px;
+            display: block; text-align: center; margin-top: 10px;
             font-weight: 700; color: var(--text-dark); text-decoration: none;
-            border: 1px solid var(--border); padding: 8px; border-radius: 10px;
+            border: 1px solid var(--border); padding: 10px; border-radius: 10px;
             background: white; font-size: 12px;
         }
 
-        /* TABLEROS */
+        /* TABLEROS BI */
         .dash-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .window { 
-            background: white; border-radius: 15px; height: 125px; overflow: hidden; 
+            background: white; border-radius: 15px; height: 150px; overflow: hidden; 
             border: 1px solid var(--border); position: relative;
             cursor: pointer; transition: transform 0.3s ease;
         }
         .window:hover { transform: scale(1.02); }
         .window img { width: 100%; height: 100%; object-fit: cover; }
-        .window .label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.8); color: white; padding: 4px; font-size: 9px; font-weight: 700; text-align: center; }
+        .window .label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); color: white; padding: 6px; font-size: 10px; font-weight: 700; text-align: center; }
 
-        /* ESTILOS DEL AMPLIADOR (MODAL) */
+        /* AMPLIADOR (MODAL) */
         #modal {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 2000;
             justify-content: center; align-items: center; cursor: zoom-out;
         }
-        #modal img { 
-            max-width: 90%; max-height: 90%; 
-            border-radius: 10px; border: 2px solid white;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-        #modal .close {
-            position: absolute; top: 20px; right: 30px;
-            color: white; font-size: 40px; font-weight: bold; cursor: pointer;
-        }
+        #modal img { max-width: 90%; max-height: 90%; border-radius: 10px; border: 2px solid white; }
 
+        /* TRAYECTORIA Y TAGS */
         .trayectoria { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; }
-        .trayectoria b { font-size: 34px; color: var(--emerald); font-family: 'Montserrat'; line-height: 1; }
-        .trayectoria span { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #475569; }
+        .trayectoria b { font-size: 36px; color: var(--emerald); font-family: 'Montserrat'; line-height: 1; }
+        .trayectoria span { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #475569; }
 
-        .tags { grid-column: 4 / 5; display: flex; flex-wrap: wrap; gap: 4px; align-content: center; justify-content: center; }
-        .tag { background: white; border: 1px solid var(--border); padding: 4px 8px; border-radius: 8px; font-size: 9px; font-weight: 700; }
+        .tags { grid-column: 4 / 5; display: flex; flex-wrap: wrap; gap: 5px; align-content: center; justify-content: center; }
+        .tag { background: white; border: 1px solid var(--border); padding: 5px 10px; border-radius: 8px; font-size: 10px; font-weight: 700; }
 
         @media (max-width: 850px) {
             .container { grid-template-columns: 1fr; }
@@ -138,8 +133,7 @@
     </nav>
 
     <div id="modal" onclick="this.style.display='none'">
-        <span class="close">&times;</span>
-        <img id="modal-img" src="" alt="Dashboard ampliado">
+        <img id="modal-img" src="">
     </div>
 
     <div class="container">
@@ -174,4 +168,42 @@
             <div class="card" style="padding: 10px;">
                 <div class="video-box">
                     <video autoplay muted loop playsinline controls>
-                        <source src
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a href="https://www.linkedin.com/in/solari-pablo/" class="link-ln" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="dash-row">
+            <div class="window" onclick="ampliarImagen('image_6cc62d.png')">
+                <img src="image_6cc62d.png">
+                <div class="label">DASHBOARD RENTABILIDAD</div>
+            </div>
+            <div class="window" onclick="ampliarImagen('image_segunda.png')">
+                <img src="image_segunda.png">
+                <div class="label">DASHBOARD VENTAS</div>
+            </div>
+        </div>
+
+        <div class="card trayectoria">
+            <b>+18 años</b>
+            <span>Trayectoria Industrial</span>
+        </div>
+
+        <div class="tags">
+            <span class="tag">PROCESOS</span>
+            <span class="tag">RENTABILIDAD</span>
+            <span class="tag">CASH FLOW</span>
+        </div>
+    </div>
+
+    <script>
+        function ampliarImagen(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
