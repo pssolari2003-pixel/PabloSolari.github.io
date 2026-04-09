@@ -21,7 +21,7 @@
             background-color: var(--bg);
             color: var(--white);
             font-family: 'Inter', sans-serif;
-            padding: 70px 15px 15px; /* Compactado padding superior e lateral */
+            padding: 75px 15px 15px;
             min-height: 100vh;
         }
 
@@ -29,7 +29,7 @@
         .navbar {
             position: fixed;
             top: 0; left: 0; right: 0;
-            padding: 10px 5%; /* Compactado padding */
+            padding: 12px 5%;
             display: flex;
             justify-content: flex-end;
             z-index: 1000;
@@ -39,14 +39,14 @@
         }
 
         .btn-nav {
-            padding: 8px 16px; /* Compactado padding botón */
+            padding: 8px 18px;
             background: var(--white);
             color: #000;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
             text-transform: uppercase;
-            font-size: 0.6rem; /* Achicado fuente */
+            font-size: 0.6rem;
             letter-spacing: 1px;
             transition: 0.3s;
         }
@@ -55,87 +55,65 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px; /* Compactado gap entre ítems */
+            gap: 10px;
             max-width: 1250px;
             margin: 0 auto;
         }
 
         .bento-item {
             background-color: var(--card);
-            border-radius: 12px; /* Ligeramente más redondeado para compactar */
+            border-radius: 14px;
             border: 1px solid var(--border);
-            padding: 15px; /* Compactado padding interno */
+            padding: 18px;
             display: flex;
             flex-direction: column;
         }
 
-        /* HERO - Integrando Propuesta de Valor y Badges */
-        .item-hero { 
-            grid-column: 1 / 4; 
-            padding: 20px; /* Compactado padding */
-        }
+        /* HERO - LOS 4 PILARES INTEGRADOS */
+        .item-hero { grid-column: 1 / 4; }
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Achicado tamaño de fuente H1 */
-            line-height: 1.0; /* Más apretado */
-            margin-bottom: 10px;
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            line-height: 1.0;
+            margin-bottom: 12px;
             letter-spacing: -1.5px;
         }
-        .proposal-text { font-size: 0.9rem; color: var(--muted); line-height: 1.4; max-width: 500px; margin-bottom: 15px; } /* Compactado texto */
+        .proposal-text { font-size: 0.95rem; color: var(--muted); line-height: 1.4; max-width: 550px; margin-bottom: 20px; }
         
-        .hero-details { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
-        .hero-details h3 { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
-        .hero-details p { font-size: 0.85rem; color: var(--muted); line-height: 1.3; }
+        .grid-pilares { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .pilar h3 { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+        .pilar p { font-size: 0.8rem; color: var(--muted); line-height: 1.3; }
 
-        .badges-container { display: flex; gap: 6px; flex-wrap: wrap; }
-        .badges-container img { height: 22px; border-radius: 4px; } /* Achicado badges */
+        .badges-container { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badges-container img { height: 24px; border-radius: 4px; }
 
-        /* VIDEO - Compactado */
-        .item-video { grid-column: 4 / 5; justify-content: center; padding: 8px; }
-        .video-box { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #444; aspect-ratio: 16/9; }
+        /* VIDEO */
+        .item-video { grid-column: 4 / 5; justify-content: center; padding: 10px; }
+        .video-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #444; aspect-ratio: 16/9; }
         video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* DASHBOARDS - Compactado y Achicado */
-        .item-dashboards { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .window { background: #1e1e1e; border-radius: 8px; border: 1px solid #444; overflow: hidden; max-height: 150px; } /* Altura máxima reducida */
-        .window-header { background: #2d2d2d; padding: 6px; display: flex; gap: 4px; align-items: center; }
+        /* DASHBOARDS */
+        .item-dashboards { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .window { background: #1e1e1e; border-radius: 10px; border: 1px solid #444; overflow: hidden; height: 160px; }
+        .window-header { background: #2d2d2d; padding: 7px; display: flex; gap: 5px; align-items: center; }
         .dot { width: 6px; height: 6px; border-radius: 50%; }
         .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-        .window-content img { width: 100%; height: auto; display: block; filter: blur(3px); transition: 0.4s; }
+        .window-content img { width: 100%; display: block; filter: blur(3px); transition: 0.4s; }
         .window:hover .window-content img { filter: blur(0); }
 
-        /* TRAYECTORIA Y METODOLOGIA - Compactado y Unificado en línea */
-        .item-info { 
-            grid-column: 3 / 5; /* Ocupa el resto del ancho */
-            display: flex; 
-            flex-direction: row; /* En línea */
-            gap: 8px; 
-            background: transparent; 
-            border: none; 
-            padding: 0; 
-        }
-        .sub-card { 
-            background: var(--card); 
-            border: 1px solid var(--border); 
-            border-radius: 12px; 
-            padding: 12px; 
-            flex: 1; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        /* INFO - TRAYECTORIA Y METODOLOGIA */
+        .item-info { grid-column: 3 / 5; display: flex; gap: 10px; background: transparent; border: none; padding: 0; }
+        .sub-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
         
-        .trajectory-count { font-size: 1.3rem; font-weight: 900; line-height: 1; }
-        .trajectory-label { font-size: 0.55rem; color: var(--accent); text-transform: uppercase; margin-top: 4px; }
-
-        .methodology-title { font-size: 0.7rem; margin-bottom: 6px; font-family: 'Montserrat'; text-transform: uppercase;}
-        .tags-container { display: flex; flex-wrap: wrap; gap: 4px; }
-        .tag { font-size: 0.55rem; background: #222; padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid #333; color: var(--muted); }
+        .count { font-size: 1.6rem; font-weight: 900; line-height: 1; }
+        .label { font-size: 0.6rem; color: var(--accent); text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
+        
+        .tag { font-size: 0.6rem; background: #222; padding: 3px 8px; border-radius: 4px; display: inline-block; margin: 2px; border: 1px solid #333; color: var(--muted); }
 
         @media (max-width: 1000px) {
             .bento-grid { grid-template-columns: 1fr; }
             .item-hero, .item-video, .item-dashboards, .item-info { grid-column: 1 / -1; }
-            .item-info { flex-direction: column; } /* Vuelve a columna en móvil */
+            .item-info { flex-direction: column; }
         }
     </style>
 </head>
@@ -148,26 +126,24 @@
     <div class="bento-grid">
         
         <section class="bento-item item-hero">
-            <p style="color: var(--accent); font-weight: 600; letter-spacing: 1.5px; margin-bottom: 8px; font-size: 0.6rem;">ESTRATEGIA & CONTROL</p>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 0.7rem;">ESTRATEGIA & CONTROL</p>
             <h1>Pablo Solari.</h1>
-            <p class="proposal-text">
-                Profesionalizo el control de tu empresa para que el crecimiento no se convierta en caos. Rigor técnico para una operación rentable.
-            </p>
+            <p class="proposal-text">Profesionalizo el control de tu empresa para que el crecimiento no se convierta en caos. Rigor técnico para una operación rentable.</p>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                <div class="hero-details">
+            <div class="grid-pilares">
+                <div class="pilar">
                     <h3>Diagnóstico de Procesos</h3>
                     <p>Auditoría de flujos y optimización de controles internos.</p>
                 </div>
-                <div class="hero-details">
+                <div class="pilar">
                     <h3>Eliminación de Manuales</h3>
                     <p>Soluciones ágiles en AppSheet para digitalizar la gestión.</p>
                 </div>
-                <div class="hero-details">
+                <div class="pilar">
                     <h3>Visibilidad Financiera</h3>
                     <p>Modelos dinámicos en Power BI para medir rentabilidad real.</p>
                 </div>
-                <div class="hero-details">
+                <div class="pilar">
                     <h3>Gestión de Manufactura</h3>
                     <p>Estrategia de planificación y compras para industria.</p>
                 </div>
@@ -180,3 +156,18 @@
                 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
             </div>
         </section>
+
+        <section class="bento-item item-video">
+            <div class="video-box">
+                <video controls><source src="video.mp4" type="video/mp4"></video>
+            </div>
+        </section>
+
+        <div class="item-dashboards">
+            <div class="window">
+                <div class="window-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                <div class="window-content"><img src="image_6cc62d.png"></div>
+            </div>
+            <div class="window">
+                <div class="window-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                <div class="window-content"><img src="image_6cc62d
