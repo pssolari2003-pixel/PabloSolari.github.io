@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #cbd5e1; /* Gris acero sólido de fondo */
-            --card: #ffffff; /* Cajas blancas puras para que resalten */
+            --bg: #cbd5e1; 
+            --card: #ffffff; 
             --text-dark: #0f172a; 
             --emerald: #10b981; 
             --border: #94a3b8;
@@ -20,7 +20,7 @@
             background-color: var(--bg);
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
-            padding: 75px 20px 20px; /* Reducido para que todo suba */
+            padding: 70px 20px 20px; /* Todo sube un poco más */
             line-height: 1.3;
         }
 
@@ -46,34 +46,34 @@
 
         .card {
             background: var(--card); border-radius: 20px;
-            padding: 20px; /* Padding reducido para achicar los cuadros */
+            padding: 18px; /* Cuadros más compactos */
             border: 1px solid var(--border);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* HERO ACHICADO */
+        /* CUADRO SUPERIOR ACHICADO */
         .hero { grid-column: 1 / 4; }
-        .hero h1 { font-family: 'Montserrat'; font-size: 42px; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
-        .hero p.sub { font-weight: 600; color: #475569; font-size: 14px; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 40px; letter-spacing: -2px; line-height: 1; margin-bottom: 5px; }
+        .hero p.sub { font-weight: 600; color: #475569; font-size: 14px; margin-bottom: 12px; }
 
         .pilares-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-            border-top: 1px solid #cbd5e1; padding-top: 15px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            border-top: 1px solid #cbd5e1; padding-top: 12px;
         }
 
         .pilar {
-            background: #f1f5f9; padding: 12px; border-radius: 10px;
+            background: #f1f5f9; padding: 10px; border-radius: 10px;
             border-left: 5px solid var(--emerald);
         }
-        .pilar h3 { font-size: 10px; color: var(--emerald); text-transform: uppercase; margin-bottom: 3px; }
+        .pilar h3 { font-size: 10px; color: var(--emerald); text-transform: uppercase; margin-bottom: 2px; }
         .pilar p { font-size: 13px; font-weight: 700; }
 
-        /* VIDEO ACHICADO */
+        /* VIDEO ACHICADO VERTICALMENTE */
         .sidebar { grid-column: 4 / 5; }
         .video-box { 
             background: #000; border-radius: 15px; overflow: hidden; 
             aspect-ratio: 9/16; width: 100%; border: 1px solid var(--border);
-            max-height: 380px; /* Altura máxima para que no empuje todo abajo */
+            max-height: 350px; /* Altura máxima reducida para que suba lo de abajo */
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
@@ -84,9 +84,9 @@
             background: white; font-size: 13px;
         }
 
-        /* DASHBOARDS Y STATS SUBEN */
+        /* GRÁFICOS Y TAGS SUBEN */
         .dash-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .window { background: #f8fafc; border-radius: 15px; height: 135px; overflow: hidden; border: 1px solid var(--border); }
+        .window { background: #f8fafc; border-radius: 15px; height: 130px; overflow: hidden; border: 1px solid var(--border); }
         .window img { width: 100%; height: 100%; object-fit: cover; }
 
         .trayectoria { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; }
@@ -112,10 +112,9 @@
         <div class="card hero">
             <h1>Pablo Solari.</h1>
             <p class="sub">Estrategia y Control de Gestión para Empresas.</p>
-            
             <div class="pilares-grid">
                 <div class="pilar"><h3>Diagnóstico</h3><p>Optimización de flujos y rentabilidad.</p></div>
-                <div class="pilar"><h3>Sistemas</h3><p>Digitalización con AppSheet y Excel.</p></div>
+                <div class="pilar"><h3>Sistemas</h3><p>AppSheet y Excel inteligente.</p></div>
                 <div class="pilar"><h3>Visibilidad</h3><p>Tableros dinámicos en Power BI.</p></div>
                 <div class="pilar"><h3>Industrial</h3><p>Costos, planificación y compras.</p></div>
             </div>
@@ -148,6 +147,5 @@
             <span class="tag">RENTABILIDAD</span>
         </div>
     </div>
-
 </body>
 </html>
