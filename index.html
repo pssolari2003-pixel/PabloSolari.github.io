@@ -4,96 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pablo Solari | Estrategia y Control</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* FUERZO EL COLOR AQUÍ */
         :root { 
-            --fondo: #cbd5e1 !important; 
-            --blanco: #ffffff !important; 
-            --verde: #10b981 !important; 
+            --bg: #cbd5e1; 
+            --card: #ffffff; 
+            --text-dark: #0f172a; 
+            --emerald: #10b981; 
+            --border: #94a3b8;
         }
 
-        body { 
-            background-color: var(--fondo) !important; 
-            margin: 0; 
-            padding: 80px 20px 20px; 
-            font-family: 'Inter', sans-serif; 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            padding: 70px 20px 20px; /* Todo sube un poco */
+            line-height: 1.2;
         }
 
-        .navbar { 
-            position: fixed; top: 0; left: 0; right: 0; 
-            background: white; padding: 12px 5%; 
-            border-bottom: 4px solid var(--verde); z-index: 1000; 
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: white; padding: 10px 5%;
             display: flex; justify-content: flex-end;
+            border-bottom: 4px solid var(--emerald);
+            z-index: 1000;
         }
 
-        .container { 
-            max-width: 1000px; margin: 0 auto; 
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; 
+        .btn-cta {
+            background: var(--text-dark); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 700; font-size: 11px;
+            text-transform: uppercase;
         }
 
-        .card { 
-            background: var(--blanco) !important; 
-            border-radius: 20px; padding: 15px; 
-            border: 1px solid #94a3b8; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        .container {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;
         }
 
-        /* HERO COMPACTO */
+        .card {
+            background: var(--card); border-radius: 20px;
+            padding: 15px; /* Compactamos padding interior */
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* CUADRO SUPERIOR COMPACTADO VERTICALMENTE */
         .hero { grid-column: 1 / 4; }
-        h1 { font-family: 'Montserrat'; font-size: 38px; margin: 0 0 5px 0; letter-spacing: -2px; }
-        .sub { color: #475569; font-weight: 600; font-size: 14px; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 38px; letter-spacing: -2px; line-height: 1; margin-bottom: 5px; }
+        .hero p.sub { font-weight: 600; color: #475569; font-size: 13px; margin-bottom: 10px; /* Reducido margen inferior */ }
 
-        .pilares { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; border-top: 1px solid #cbd5e1; padding-top: 15px; }
-        .pilar { background: #f1f5f9; padding: 10px; border-radius: 12px; border-left: 5px solid var(--verde); }
-        .pilar h3 { font-size: 9px; color: var(--verde); text-transform: uppercase; margin: 0 0 3px 0; }
-        .pilar p { font-size: 12px; font-weight: 700; margin: 0; }
+        .pilares-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; /* Gap reducido */
+            border-top: 1px solid #cbd5e1; padding-top: 10px; /* Padding reducido */
+        }
 
-        /* VIDEO Y LINKEDIN */
+        .pilar {
+            background: #f8fafc; 
+            padding: 8px; /* Padding interior reducido al mínimo */
+            border-radius: 10px;
+            border-left: 5px solid var(--emerald);
+        }
+        .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 2px; }
+        .pilar p { font-size: 12px; font-weight: 700; color: var(--text-dark); line-height: 1.1; }
+
+        /* VIDEO CON CONTROLES ACTIVADOS */
         .sidebar { grid-column: 4 / 5; }
-        .video-box { background: black; border-radius: 15px; overflow: hidden; aspect-ratio: 9/16; max-height: 320px; }
+        .video-box { 
+            background: #000; border-radius: 15px; overflow: hidden; 
+            aspect-ratio: 9/16; width: 100%; border: 1px solid var(--border);
+            max-height: 320px; /* Video más compacto */
+        }
+        
+        /* Habilitamos los controles nativos del navegador */
         video { width: 100%; height: 100%; object-fit: cover; }
-        .ln-btn { display: block; text-align: center; margin-top: 10px; padding: 10px; background: white; border: 1px solid #94a3b8; border-radius: 10px; text-decoration: none; color: black; font-weight: 700; font-size: 12px; }
 
-        /* GRAFICOS */
+        .link-ln {
+            display: block; text-align: center; margin-top: 8px;
+            font-weight: 700; color: var(--text-dark); text-decoration: none;
+            border: 1px solid var(--border); padding: 8px; border-radius: 10px;
+            background: white; font-size: 12px;
+        }
+
+        /* GRÁFICOS Y OTROS SUBEN */
         .dash-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .window { background: white; border-radius: 15px; height: 120px; border: 1px solid #94a3b8; overflow: hidden; }
+        .window { background: white; border-radius: 15px; height: 120px; overflow: hidden; border: 1px solid var(--border); }
         .window img { width: 100%; height: 100%; object-fit: cover; }
 
-        .stats { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; }
-        .stats b { font-size: 32px; color: var(--verde); font-family: 'Montserrat'; }
+        .trayectoria { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+        .trayectoria b { font-size: 34px; color: var(--emerald); font-family: 'Montserrat'; line-height: 1; }
+        .trayectoria span { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #475569; }
 
-        .tags { grid-column: 4 / 5; display: flex; flex-wrap: wrap; gap: 5px; align-content: center; justify-content: center; }
-        .tag { background: white; border: 1px solid #94a3b8; padding: 5px 10px; border-radius: 8px; font-size: 9px; font-weight: 700; }
+        .tags { grid-column: 4 / 5; display: flex; flex-wrap: wrap; gap: 4px; align-content: center; justify-content: center; }
+        .tag { background: white; border: 1px solid var(--border); padding: 4px 8px; border-radius: 8px; font-size: 9px; font-weight: 700; }
 
-        @media (max-width: 800px) { .container { grid-template-columns: 1fr; } .hero, .sidebar, .dash-row, .stats, .tags { grid-column: 1 / -1; } }
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; }
+            .hero, .sidebar, .dash-row, .trayectoria, .tags { grid-column: 1 / -1; }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar"><a href="https://wa.me/5493512589176" style="background: black; color: white; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 11px;">CONSULTAR</a></nav>
+
+    <nav class="navbar">
+        <a href="https://wa.me/5493512589176" class="btn-cta" target="_blank">Agendar Diagnóstico</a>
+    </nav>
+
     <div class="container">
         <div class="card hero">
             <h1>Pablo Solari.</h1>
             <p class="sub">Estrategia y Control de Gestión para Empresas.</p>
-            <div class="pilares">
+            <div class="pilares-grid">
                 <div class="pilar"><h3>Diagnóstico</h3><p>Optimización de flujos y rentabilidad.</p></div>
                 <div class="pilar"><h3>Sistemas</h3><p>AppSheet y Excel inteligente.</p></div>
                 <div class="pilar"><h3>Visibilidad</h3><p>Tableros dinámicos en Power BI.</p></div>
                 <div class="pilar"><h3>Industrial</h3><p>Costos, planificación y compras.</p></div>
             </div>
         </div>
+
         <div class="sidebar">
             <div class="card" style="padding: 10px;">
-                <div class="video-box"><video autoplay muted loop playsinline><source src="video.mp4" type="video/mp4"></video></div>
-                <a href="https://www.linkedin.com/in/solari-pablo/" class="ln-btn" target="_blank">LINKEDIN</a>
+                <div class="video-box">
+                    <video autoplay muted loop playsinline controls>
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a href="https://www.linkedin.com/in/solari-pablo/" class="link-ln" target="_blank">LinkedIn</a>
             </div>
         </div>
+
         <div class="dash-row">
             <div class="window"><img src="image_6cc62d.png"></div>
             <div class="window"><img src="image_6cc62d.png"></div>
         </div>
-        <div class="card stats"><b>+18 años</b><br><small>TRAYECTORIA</small></div>
-        <div class="tags"><span class="tag">PROCESOS</span><span class="tag">RENTABILIDAD</span></div>
+
+        <div class="card trayectoria">
+            <b>+18 años</b>
+            <span>Trayectoria Industrial</span>
+        </div>
+
+        <div class="tags">
+            <span class="tag">PROCESOS</span>
+            <span class="tag">POWER BI</span>
+            <span class="tag">RENTABILIDAD</span>
+        </div>
     </div>
 </body>
 </html>
