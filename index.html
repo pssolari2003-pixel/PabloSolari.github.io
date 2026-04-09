@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pablo Solari | Estrategia y Control</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
             --bg: #cbd5e1; 
-            --card: #ffffff; 
+            --card: #f1f5f9; /* Gris humo suave */
             --text-dark: #0f172a; 
             --emerald: #10b981; 
             --border: #94a3b8;
+            --excel: #1D6F42;
+            --bi: #f2c811;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,7 +51,7 @@
             background: var(--card); border-radius: 20px;
             padding: 15px; 
             border: 1px solid var(--border);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .hero { grid-column: 1 / 4; }
@@ -61,11 +64,16 @@
         }
 
         .pilar {
-            background: #f8fafc; padding: 10px; border-radius: 10px;
+            background: white; padding: 12px; border-radius: 10px;
             border-left: 5px solid var(--emerald);
+            position: relative;
         }
-        .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 3px; }
-        .pilar p { font-size: 12px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+        .pilar i { 
+            position: absolute; top: 12px; right: 12px; 
+            font-size: 14px; opacity: 0.8; 
+        }
+        .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 4px; padding-right: 25px; }
+        .pilar p { font-size: 11px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
 
         .sidebar { grid-column: 4 / 5; }
         .video-box { 
@@ -112,56 +120,15 @@
             <p class="sub">Estrategia y Control de Gestión para Empresas.</p>
             <div class="pilares-grid">
                 <div class="pilar">
+                    <i class="fas fa-sitemap"></i>
                     <h3>Mapeo de Procesos</h3>
-                    <p>Identificación de redundancias y puntos críticos para optimizar la gestión[cite: 15].</p>
+                    <p>Identificación de redundancias y puntos críticos para optimizar la gestión.</p>
                 </div>
                 <div class="pilar">
+                    <i class="fas fa-file-excel" style="color: var(--excel)"></i>
                     <h3>Control Interno y Sistemas</h3>
-                    <p>Herramientas digitales para eliminar errores manuales en administración y finanzas[cite: 12, 13].</p>
+                    <p>Herramientas digitales para eliminar errores manuales en administración y finanzas.</p>
                 </div>
                 <div class="pilar">
+                    <i class="fas fa-chart-line" style="color: var(--bi)"></i>
                     <h3>Inteligencia de Negocios</h3>
-                    <p>Reporting estratégico con Power BI para el monitoreo del rendimiento en tiempo real[cite: 5, 20].</p>
-                </div>
-                <div class="pilar">
-                    <h3>Control y Gestión</h3>
-                    <p>Evaluación de costos, cash flow e inversiones y mejora del cumplimiento operativo[cite: 9, 10, 22].</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar">
-            <div class="card" style="padding: 10px;">
-                <div class="video-box">
-                    <video autoplay muted loop playsinline controls>
-                        <source src="video.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="https://www.linkedin.com/in/solari-pablo/" class="link-ln" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-
-        <div class="dash-row">
-            <div class="window">
-                <img src="image_6cc62d.png">
-                <div class="label">DASHBOARD RENTABILIDAD</div>
-            </div>
-            <div class="window">
-                <img src="image_segunda.png">
-                <div class="label">DASHBOARD VENTAS</div>
-            </div>
-        </div>
-
-        <div class="card trayectoria">
-            <b>+18 años</b>
-            <span>Trayectoria Industrial</span>
-        </div>
-
-        <div class="tags">
-            <span class="tag">PROCESOS</span>
-            <span class="tag">RENTABILIDAD</span>
-            <span class="tag">CASH FLOW</span>
-        </div>
-    </div>
-</body>
-</html>
