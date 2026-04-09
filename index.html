@@ -21,7 +21,7 @@
             background-color: var(--bg);
             color: var(--white);
             font-family: 'Inter', sans-serif;
-            padding: 85px 20px 20px;
+            padding: 70px 15px 15px; /* Compactado padding superior e lateral */
             min-height: 100vh;
         }
 
@@ -29,7 +29,7 @@
         .navbar {
             position: fixed;
             top: 0; left: 0; right: 0;
-            padding: 15px 5%;
+            padding: 10px 5%; /* Compactado padding */
             display: flex;
             justify-content: flex-end;
             z-index: 1000;
@@ -39,14 +39,14 @@
         }
 
         .btn-nav {
-            padding: 10px 20px;
+            padding: 8px 16px; /* Compactado padding botón */
             background: var(--white);
             color: #000;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.6rem; /* Achicado fuente */
             letter-spacing: 1px;
             transition: 0.3s;
         }
@@ -55,63 +55,87 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 8px; /* Compactado gap entre ítems */
             max-width: 1250px;
             margin: 0 auto;
         }
 
         .bento-item {
             background-color: var(--card);
-            border-radius: 16px;
+            border-radius: 12px; /* Ligeramente más redondeado para compactar */
             border: 1px solid var(--border);
-            padding: 20px;
+            padding: 15px; /* Compactado padding interno */
             display: flex;
             flex-direction: column;
         }
 
-        /* HERO */
-        .item-hero { grid-column: 1 / 4; padding: 30px; }
+        /* HERO - Integrando Propuesta de Valor y Badges */
+        .item-hero { 
+            grid-column: 1 / 4; 
+            padding: 20px; /* Compactado padding */
+        }
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-            line-height: 0.9;
-            margin-bottom: 15px;
-            letter-spacing: -2px;
+            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Achicado tamaño de fuente H1 */
+            line-height: 1.0; /* Más apretado */
+            margin-bottom: 10px;
+            letter-spacing: -1.5px;
         }
-        .proposal-text { font-size: 1rem; color: var(--muted); line-height: 1.5; max-width: 550px; }
+        .proposal-text { font-size: 0.9rem; color: var(--muted); line-height: 1.4; max-width: 500px; margin-bottom: 15px; } /* Compactado texto */
+        
+        .hero-details { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+        .hero-details h3 { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-details p { font-size: 0.85rem; color: var(--muted); line-height: 1.3; }
 
-        /* VIDEO */
-        .item-video { grid-column: 4 / 5; justify-content: center; padding: 10px; }
-        .video-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #444; aspect-ratio: 16/9; }
+        .badges-container { display: flex; gap: 6px; flex-wrap: wrap; }
+        .badges-container img { height: 22px; border-radius: 4px; } /* Achicado badges */
+
+        /* VIDEO - Compactado */
+        .item-video { grid-column: 4 / 5; justify-content: center; padding: 8px; }
+        .video-box { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #444; aspect-ratio: 16/9; }
         video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* DASHBOARDS */
-        .item-dashboards { grid-column: 1 / 3; display: grid; gap: 12px; }
-        .window { background: #1e1e1e; border-radius: 10px; border: 1px solid #444; overflow: hidden; }
-        .window-header { background: #2d2d2d; padding: 8px; display: flex; gap: 5px; align-items: center; }
-        .dot { width: 7px; height: 7px; border-radius: 50%; }
+        /* DASHBOARDS - Compactado y Achicado */
+        .item-dashboards { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .window { background: #1e1e1e; border-radius: 8px; border: 1px solid #444; overflow: hidden; max-height: 150px; } /* Altura máxima reducida */
+        .window-header { background: #2d2d2d; padding: 6px; display: flex; gap: 4px; align-items: center; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; }
         .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-        .window-content img { width: 100%; display: block; filter: blur(3px); transition: 0.4s; }
+        .window-content img { width: 100%; height: auto; display: block; filter: blur(3px); transition: 0.4s; }
         .window:hover .window-content img { filter: blur(0); }
 
-        /* SERVICES */
-        .item-services { grid-column: 3 / 4; display: flex; flex-direction: column; gap: 10px; }
-        .mini-card { background: #1d1d1d; border: 1px solid #333; padding: 12px; border-radius: 10px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .mini-card h3 { color: var(--accent); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 4px; }
-        .mini-card p { font-size: 0.7rem; color: var(--muted); line-height: 1.3; }
-
-        /* TRAYECTORIA Y METODOLOGIA UNIFICADOS */
-        .item-info { grid-column: 4 / 5; display: flex; flex-direction: column; gap: 12px; background: transparent; border: none; padding: 0; }
-        .sub-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 15px; flex: 1; }
+        /* TRAYECTORIA Y METODOLOGIA - Compactado y Unificado en línea */
+        .item-info { 
+            grid-column: 3 / 5; /* Ocupa el resto del ancho */
+            display: flex; 
+            flex-direction: row; /* En línea */
+            gap: 8px; 
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+        }
+        .sub-card { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 12px; 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         
-        .tag { font-size: 0.6rem; background: #222; padding: 3px 8px; border-radius: 4px; display: inline-block; margin: 2px; border: 1px solid #333; color: var(--muted); }
+        .trajectory-count { font-size: 1.3rem; font-weight: 900; line-height: 1; }
+        .trajectory-label { font-size: 0.55rem; color: var(--accent); text-transform: uppercase; margin-top: 4px; }
 
-        .badges-container { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
-        .badges-container img { height: 25px; border-radius: 4px; }
+        .methodology-title { font-size: 0.7rem; margin-bottom: 6px; font-family: 'Montserrat'; text-transform: uppercase;}
+        .tags-container { display: flex; flex-wrap: wrap; gap: 4px; }
+        .tag { font-size: 0.55rem; background: #222; padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid #333; color: var(--muted); }
 
         @media (max-width: 1000px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .item-hero, .item-video, .item-dashboards, .item-services, .item-info { grid-column: 1 / -1; }
+            .item-hero, .item-video, .item-dashboards, .item-info { grid-column: 1 / -1; }
+            .item-info { flex-direction: column; } /* Vuelve a columna en móvil */
         }
     </style>
 </head>
@@ -124,12 +148,23 @@
     <div class="bento-grid">
         
         <section class="bento-item item-hero">
-            <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 0.7rem;">ESTRATEGIA & CONTROL</p>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 1.5px; margin-bottom: 8px; font-size: 0.6rem;">ESTRATEGIA & CONTROL</p>
             <h1>Pablo Solari.</h1>
             <p class="proposal-text">
-                Transformo la <strong>complejidad operativa en claridad estratégica</strong>. 
-                Utilizo datos para profesionalizar el control de tu empresa y asegurar una operación rentable.
+                Profesionalizo el control de tu empresa para que el crecimiento no se convierta en caos. Rigor técnico para una operación rentable.
             </p>
+            
+            <div class="hero-details">
+                <div>
+                    <h3>Optimización de Procesos</h3>
+                    <p>Eliminación de procesos manuales mediante soluciones ágiles en AppSheet.</p>
+                </div>
+                <div>
+                    <h3>Inteligencia de Datos</h3>
+                    <p>Tableros estratégicos en Power BI para decisiones rentables y control de costos.</p>
+                </div>
+            </div>
+
             <div class="badges-container">
                 <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=microsoftpowerbi&logoColor=black" alt="Power BI">
                 <img src="https://img.shields.io/badge/AppSheet-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="AppSheet">
@@ -154,11 +189,21 @@
             </div>
         </div>
 
-        <div class="item-services">
-            <div class="mini-card"><h3>Optimización de Procesos</h3><p>Eliminación de tareas manuales con AppSheet.</p></div>
-            <div class="mini-card"><h3>Inteligencia de Datos</h3><p>Tableros dinámicos en Power BI para control de costos.</p></div>
-            <div class="mini-card"><h3>Visibilidad Estratégica</h3><p>Determinación de rentabilidad y puntos de equilibrio real.</p></div>
+        <div class="item-info">
+            <div class="sub-card" style="text-align: center;">
+                <span class="trajectory-count">+18 años</span>
+                <span class="trajectory-label">Trayectoria Corporativa</span>
+            </div>
+            <div class="sub-card">
+                <h3 class="methodology-title">Metodología</h3>
+                <div class="tags-container">
+                    <span class="tag">Diagnóstico</span> <span class="tag">Procesos</span> 
+                    <span class="tag">Tableros BI</span> <span class="tag">Resultados</span>
+                </div>
+            </div>
         </div>
 
-        <div class="item-info">
-            <div class="sub-card" style="text-align
+    </div>
+
+</body>
+</html>
