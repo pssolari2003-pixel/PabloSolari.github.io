@@ -13,6 +13,7 @@
             --secondary: #3a7bd5;
             --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
+            --blur-fx: blur(6px); /* Nivel de desenfoque inicial */
         }
 
         body {
@@ -66,17 +67,12 @@
         }
         video { width: 100%; display: block; }
 
-        /* Estilo de la Trayectoria */
-        .trajectory-box {
-            margin-top: 15px;
-        }
         .trajectory-box strong { color: var(--primary); }
 
         /* Panel Derecho: Servicios e Interacción */
         .services-container {
-            position: relative;
-            cursor: pointer;
             height: fit-content;
+            cursor: pointer;
         }
 
         .services-list {
@@ -84,6 +80,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: 20px;
+            transition: 0.3s ease;
         }
 
         .service-tag {
@@ -92,32 +89,43 @@
             border-radius: 12px;
             border-left: 4px solid var(--primary);
             font-size: 0.95rem;
-            transition: 0.3s;
         }
 
-        /* Contenedor Oculto de Dashboards */
-        .hidden-dashboards {
-            margin-top: 0;
+        /* MAGIA: Contenedor de Dashboards "Esfumados" */
+        .preview-dashboards {
+            margin-top: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Estado Inicial: Esfumado */
+            filter: var(--blur-fx);
+            opacity: 0.3; /* Muy tenue */
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); /* Transición suave */
         }
 
-        .services-container:hover .hidden-dashboards {
-            max-height: 600px;
-            opacity: 1;
-            margin-top: 30px;
+        /* MAGIA: Al pasar el mouse, se revelan y enfocan */
+        .services-container:hover .preview-dashboards {
+            filter: blur(0px); /* Sin desenfoque */
+            opacity: 1; /* Totalmente visible */
+            transform: scale(1.02); /* Un leve aumento de tamaño */
         }
 
-        .hidden-dashboards img {
+        /* MAGIA: Cuando los dashboards están enfocados, esfumamos un poco el texto de servicios */
+        .services-container:hover .services-list {
+            opacity: 0.6;
+            filter: blur(1px);
+        }
+
+        .preview-dashboards img {
             width: 100%;
             border-radius: 15px;
-            border: 1px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0px 20px rgba(0, 210, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .services-container:hover .preview-dashboards img {
+            box-shadow: 0 10px 40px rgba(0, 210, 255, 0.3);
         }
 
         .btn-wa {
@@ -138,7 +146,7 @@
 
         @media (max-width: 900px) {
             .main-layout { grid-template-columns: 1fr; }
-            .hidden-dashboards { grid-template-columns: 1fr; }
+            .preview-dashboards { grid-template-columns: 1fr; }
             .services-list { grid-template-columns: 1fr; }
         }
     </style>
@@ -147,52 +155,3 @@
 
     <header>
         <h1>Pablo Solari</h1>
-        <p style="color: var(--primary); letter-spacing: 3px; font-size: 1.1rem;">ESTRATEGIA & GESTIÓN</p>
-    </header>
-
-    <div class="main-layout">
-        
-        <div class="bento-item">
-            <div class="video-wrapper">
-                <video autoplay muted loop playsinline>
-                    <source src="video.mp4" type="video/mp4">
-                </video>
-            </div>
-            
-            <div class="trajectory-box">
-                <h2>Trayectoria</h2>
-                <p>Especialista en procesos y gestión con <strong>18 años de experiencia</strong> en el sector multinacional (Ex-Arcor).</p>
-                <br>
-                <p>Mi formación de posgrado y visión corporativa me permiten transformar la estructura de costos y la eficiencia de PyMEs y nuevos emprendimientos.</p>
-            </div>
-            
-            <a href="https://wa.me/5493512589176" class="btn-wa">Agendar Consultoría Directa</a>
-        </div>
-
-        <div class="bento-item services-container">
-            <h2>Servicios Especializados</h2>
-            <p>Descubrí cómo la analítica avanzada puede potenciar tu negocio. <strong>Posate aquí para ver mis Dashboards:</strong></p>
-            
-            <div class="services-list">
-                <div class="service-tag">Gestión de Costos y Procesos</div>
-                <div class="service-tag">Business Intelligence (Power BI)</div>
-                <div class="service-tag">Control Interno & Auditoría</div>
-                <div class="service-tag">Finanzas y Flujo de Fondos</div>
-            </div>
-
-            <div class="hidden-dashboards">
-                <div>
-                    <p style="margin-bottom: 10px; font-size: 0.85rem; text-align: center; color: var(--primary);">Control Operativo</p>
-                    <img src="image_6cc62d.png" alt="Dashboard Gestión">
-                </div>
-                <div>
-                    <p style="margin-bottom: 10px; font-size: 0.85rem; text-align: center; color: var(--primary);">Análisis de Ventas</p>
-                    <img src="image_segunda.png" alt="Dashboard Comercial">
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
