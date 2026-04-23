@@ -1,212 +1,122 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Solari | Estrategia y Control</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Pablo Solari | Estrategia & Gestión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --bg: #cbd5e1; 
-            --card: #f1f5f9; 
-            --text-dark: #0f172a; 
-            --emerald: #10b981; 
-            --border: #94a3b8;
-            --excel: #1D6F42;
-            --bi: #f2c811; 
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            background-color: var(--bg);
-            color: var(--text-dark);
-            font-family: 'Inter', sans-serif;
-            padding: 60px 20px 10px; /* Reduje padding superior e inferior */
-            line-height: 1.1;
-            height: 100vh;
-            overflow: hidden; /* Evita el scroll si todo entra justo */
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0;
-            background: white; padding: 8px 5%;
-            display: flex; justify-content: flex-end;
-            border-bottom: 3px solid var(--emerald);
-            z-index: 1000;
+        /* Hero Moderno */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(0, 210, 255, 0.1), transparent);
         }
 
-        .btn-cta {
-            background: var(--text-dark); color: white;
-            padding: 6px 15px; border-radius: 6px;
-            text-decoration: none; font-weight: 700; font-size: 11px;
-            text-transform: uppercase;
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
-        .container {
-            max-width: 1100px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; /* Gap más chico */
+        /* Tarjetas Estilo Glassmorphism */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px 10%;
         }
 
         .card {
-            background: var(--card); border-radius: 15px;
-            padding: 12px; /* Menos padding interno */
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        /* CABECERA */
-        .hero { grid-column: 1 / 4; padding-bottom: 10px; }
-        .hero h1 { font-family: 'Montserrat'; font-size: 32px; letter-spacing: -1.5px; margin-bottom: 2px; }
-        .hero p.sub { font-weight: 600; color: #475569; font-size: 12px; margin-bottom: 8px; }
-
-        .pilares-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
-            border-top: 1px solid #cbd5e1; padding-top: 8px;
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
         }
 
-        .pilar {
-            background: white; padding: 8px 12px; border-radius: 10px;
-            border-left: 4px solid var(--emerald);
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .pilar:hover { transform: translateY(-2px); }
-        .pilar i { position: absolute; top: 8px; right: 10px; font-size: 13px; opacity: 0.7; }
-        .pilar h3 { font-size: 9px; color: var(--emerald); text-transform: uppercase; margin-bottom: 2px; }
-        .pilar p { font-size: 10px; font-weight: 700; color: var(--text-dark); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
 
-        /* VIDEO / SIDEBAR */
-        .sidebar { grid-column: 4 / 5; }
-        .video-box { 
-            background: #000; border-radius: 12px; overflow: hidden; 
-            aspect-ratio: 9/16; width: 100%; border: 1px solid var(--border);
-            max-height: 280px; /* Reduje altura del video */
-        }
-        video { width: 100%; height: 100%; object-fit: cover; }
-
-        .link-ln {
-            display: block; text-align: center; margin-top: 6px;
-            font-weight: 700; color: var(--text-dark); text-decoration: none;
-            border: 1px solid var(--border); padding: 6px; border-radius: 8px;
-            background: white; font-size: 11px;
+        /* Botón con Onda */
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        /* DASHBOARDS - Suben de posición */
-        .dash-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .window { 
-            background: white; border-radius: 12px; height: 110px; /* Reduje altura */
-            overflow: hidden; border: 1px solid var(--border); position: relative;
-            cursor: pointer; transition: transform 0.2s ease;
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5);
         }
-        .window:hover { transform: scale(1.03); }
-        .window img { width: 100%; height: 100%; object-fit: cover; }
-        .window .label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); color: white; padding: 4px; font-size: 8px; font-weight: 700; text-align: center; }
 
-        /* TRAYECTORIA - Sube de posición */
-        .trayectoria { grid-column: 3 / 4; text-align: center; display: flex; flex-direction: column; justify-content: center; height: 110px; }
-        .trayectoria b { font-size: 28px; color: var(--emerald); font-family: 'Montserrat'; line-height: 1; }
-        .trayectoria span { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #475569; }
-
-        /* TAGS */
-        .tags { grid-column: 4 / 5; display: flex; flex-wrap: wrap; gap: 4px; align-content: center; justify-content: center; }
-        .tag { background: white; border: 1px solid var(--border); padding: 4px 8px; border-radius: 6px; font-size: 9px; font-weight: 700; }
-
-        /* MODAL */
-        #modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 2000;
-            justify-content: center; align-items: center; cursor: zoom-out;
+        /* Sección de Dashboards */
+        .portfolio { padding: 50px 10%; text-align: center; }
+        .portfolio img { 
+            width: 100%; border-radius: 15px; 
+            filter: grayscale(20%); transition: 0.5s;
         }
-        #modal img { max-width: 90%; max-height: 90%; border-radius: 10px; border: 2px solid white; }
+        .portfolio img:hover { filter: grayscale(0%); }
 
-        @media (max-width: 850px) {
-            body { overflow: auto; height: auto; }
-            .container { grid-template-columns: 1fr; }
-            .hero, .sidebar, .dash-row, .trayectoria, .tags { grid-column: 1 / -1; }
-            .window, .trayectoria { height: 150px; }
-        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="https://wa.me/5493512589176" class="btn-cta" target="_blank">Agendar Diagnóstico</a>
-    </nav>
-
-    <div id="modal" onclick="this.style.display='none'">
-        <img id="modal-img" src="">
-    </div>
-
-    <div class="container">
-        <div class="card hero">
-            <h1>Pablo Solari.</h1>
-            <p class="sub">Estrategia y Control de Gestión para Empresas.</p>
-            <div class="pilares-grid">
-                <div class="pilar">
-                    <i class="fas fa-sitemap" style="color: #64748b"></i>
-                    <h3>Mapeo de Procesos</h3>
-                    <p>Identificación de redundancias y puntos críticos.</p>
-                </div>
-                <div class="pilar">
-                    <i class="fas fa-file-excel" style="color: var(--excel)"></i>
-                    <h3>Control Interno y Sistemas</h3>
-                    <p>Herramientas digitales para eliminar errores manuales.</p>
-                </div>
-                <div class="pilar">
-                    <i class="fas fa-chart-bar" style="color: var(--bi)"></i>
-                    <h3>Inteligencia de Negocios</h3>
-                    <p>Reporting estratégico con Power BI en tiempo real.</p>
-                </div>
-                <div class="pilar">
-                    <i class="fas fa-wallet" style="color: #64748b"></i>
-                    <h3>Control y Gestión</h3>
-                    <p>Evaluación de costos, cash flow e inversiones.</p>
-                </div>
-            </div>
+    <section class="hero">
+        <div>
+            <h1>Pablo Solari</h1>
+            <p style="font-size: 1.5rem; opacity: 0.8;">Estrategia y Control de Gestión para Empresas</p>
+            <br>
+            <a href="https://wa.me/5493512589176" class="btn">Agendar Diagnóstico</a>
         </div>
+    </section>
 
-        <div class="sidebar">
-            <div class="card" style="padding: 8px;">
-                <div class="video-box">
-                    <video autoplay muted loop playsinline controls>
-                        <source src="video.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="https://www.linkedin.com/in/solari-pablo/" class="link-ln" target="_blank">LinkedIn</a>
-            </div>
+    <div class="services-grid">
+        <div class="card">
+            <h3>Mapeo de Procesos</h3>
+            <p>Identificación de puntos críticos y optimización de flujos operativos.</p>
         </div>
-
-        <div class="dash-row">
-            <div class="window" onclick="ampliarImagen('image_6cc62d.png')">
-                <img src="image_6cc62d.png">
-                <div class="label">DASHBOARD RENTABILIDAD</div>
-            </div>
-            <div class="window" onclick="ampliarImagen('image_segunda.png')">
-                <img src="image_segunda.png">
-                <div class="label">DASHBOARD VENTAS</div>
-            </div>
+        <div class="card">
+            <h3>BI & Power BI</h3>
+            <p>Dashboards dinámicos para decisiones basadas en datos reales.</p>
         </div>
-
-        <div class="card trayectoria">
-            <b>+18 años</b>
-            <span>Trayectoria Industrial</span>
-        </div>
-
-        <div class="tags">
-            <span class="tag">PROCESOS</span>
-            <span class="tag">RENTABILIDAD</span>
-            <span class="tag">CASH FLOW</span>
+        <div class="card">
+            <h3>Control Interno</h3>
+            <p>Sistemas digitales que eliminan el error manual y protegen tu rentabilidad.</p>
         </div>
     </div>
 
-    <script>
-        function ampliarImagen(src) {
-            document.getElementById('modal-img').src = src;
-            document.getElementById('modal').style.display = 'flex';
-        }
-    </script>
 </body>
 </html>
