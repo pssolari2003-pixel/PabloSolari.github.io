@@ -10,10 +10,10 @@
         
         body {
             font-family: 'Outfit', sans-serif;
-            /* Fondo Gris Slate más claro y profesional */
-            background: #334155; 
-            background: radial-gradient(circle at center, #475569, #1e293b);
-            color: white;
+            /* Fondo Gris Claro / Medio - Mucho más luminoso */
+            background: #64748b; 
+            background: linear-gradient(135deg, #94a3b8 0%, #475569 100%);
+            color: #f8fafc;
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -24,9 +24,8 @@
         header { text-align: center; margin-bottom: 30px; }
         header h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
-            background: linear-gradient(to right, #fff, #00d2ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .main-layout {
@@ -38,13 +37,13 @@
         }
 
         .bento-item {
-            /* Tarjetas con un poco más de contraste sobre el fondo gris */
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
+            /* Tarjetas más opacas para resaltar sobre el fondo claro */
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(12px);
             border-radius: 20px;
             padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         /* Video */
@@ -68,11 +67,12 @@
         }
 
         .service-tag {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
             padding: 10px;
             border-radius: 10px;
-            border-left: 3px solid #00d2ff;
+            border-left: 4px solid #00d2ff;
             font-size: 0.9rem;
+            color: #ffffff;
         }
 
         /* Dashboards Esfumados */
@@ -81,8 +81,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            filter: blur(5px);
-            opacity: 0.3;
+            filter: blur(6px);
+            opacity: 0.4;
             transition: all 0.6s ease;
         }
 
@@ -95,11 +95,12 @@
             width: 100%;
             border-radius: 10px;
             border: 1px solid #00d2ff;
+            background: white; /* Por si las imágenes tienen transparencia */
         }
 
         .btn-wa {
             display: block;
-            background: #25d366;
+            background: #22c55e;
             color: white;
             text-align: center;
             padding: 15px;
@@ -109,10 +110,10 @@
             margin-top: 20px;
             transition: 0.3s;
         }
-        .btn-wa:hover { transform: scale(1.02); background: #1eb954; }
+        .btn-wa:hover { background: #16a34a; transform: translateY(-2px); }
 
         h2 { color: #00d2ff; margin-bottom: 10px; font-size: 1.4rem; }
-        p { color: #e2e8f0; line-height: 1.5; font-size: 0.95rem; }
+        p { color: #f1f5f9; line-height: 1.5; font-size: 0.95rem; }
 
         @media (max-width: 800px) {
             .main-layout { grid-template-columns: 1fr; }
@@ -124,7 +125,7 @@
 
     <header>
         <h1>Pablo Solari</h1>
-        <p style="color: #00d2ff; letter-spacing: 2px;">ESTRATEGIA & GESTIÓN</p>
+        <p style="color: #f1f5f9; letter-spacing: 2px; opacity: 0.9;">ESTRATEGIA & GESTIÓN</p>
     </header>
 
     <div class="main-layout">
