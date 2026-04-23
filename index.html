@@ -6,30 +6,31 @@
     <title>Pablo Solari | Estrategia & Gestión</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
             --dark: #0f172a;
-            --glass: rgba(255, 255, 255, 0.08);
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: #0f172a;
             color: white;
-            margin: 0;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Hero con Video */
+        /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 2rem;
             text-align: center;
-            padding: 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
 
         .video-container {
@@ -37,77 +38,72 @@
             max-width: 800px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.2);
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            margin-bottom: 2rem;
         }
 
         video { width: 100%; display: block; }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             background: linear-gradient(to right, #fff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 0;
         }
 
-        /* Sección de Gráficos / Dashboards */
-        .dashboard-section {
-            padding: 80px 10%;
-            background: rgba(0, 0, 0, 0.2);
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin: 1rem 0 2rem;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary);
+        /* Grid de Imágenes */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
         }
 
-        .grid-dashboards {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
 
-        .dashboard-item {
-            background: var(--glass);
-            border-radius: 20px;
-            padding: 15px;
-            backdrop-filter: blur(10px);
+        .card {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
             transition: 0.3s;
         }
 
-        .dashboard-item:hover {
+        .card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
         }
 
-        .dashboard-item img {
+        .card img {
             width: 100%;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
         }
 
-        /* Botón Flotante de WhatsApp */
-        .btn-ws {
+        /* Botón WhatsApp */
+        .btn-wa {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 2rem;
+            right: 2rem;
             background: #25d366;
             color: white;
-            padding: 15px 25px;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: 0.3s;
+            z-index: 100;
         }
-
-        .btn-ws:hover { transform: scale(1.1); }
 
     </style>
 </head>
@@ -116,35 +112,30 @@
     <section class="hero">
         <div class="video-container">
             <video autoplay muted loop playsinline>
-                <source src="TU_VIDEO.mp4" type="video/mp4"> 
-                Tu navegador no soporta el video.
+                <source src="video.mp4" type="video/mp4">
             </video>
         </div>
         <h1>Pablo Solari</h1>
-        <p style="font-size: 1.4rem; opacity: 0.9; max-width: 700px;">
-            Transformando datos en decisiones. Consultoría integral en Gestión, Costos y Estrategia.
-        </p>
+        <p class="subtitle">Estrategia y Control de Gestión para PyMEs y Proyectos Tecnológicos.</p>
     </section>
 
-    <section class="dashboard-section" id="proyectos">
-        <h2 class="section-title">Control de Gestión & BI</h2>
-        <div class="grid-dashboards">
-            <div class="dashboard-item">
-                <img src="grafico1.png" alt="Análisis de Costos">
-                <h3>Control de Costos</h3>
-                <p>Visualización dinámica para optimización de recursos en empresas manufactureras.</p>
+    <div class="container">
+        <h2 style="margin-bottom: 2rem; text-align: center;">Dashboards de Gestión</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="image_6cc62d.png" alt="Dashboard 1">
+                <h3>Análisis de Costos</h3>
+                <p>Optimización de procesos operativos.</p>
             </div>
-            <div class="dashboard-item">
-                <img src="grafico2.png" alt="Power BI Ventas">
-                <h3>Gestión Comercial</h3>
-                <p>Seguimiento de KPIs en tiempo real para equipos de ventas.</p>
+            <div class="card">
+                <img src="image_segunda.png" alt="Dashboard 2">
+                <h3>Control Comercial</h3>
+                <p>KPIs dinámicos en tiempo real.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <a href="https://wa.me/5493512589176" class="btn-ws">
-        Contactar por WhatsApp
-    </a>
+    <a href="https://wa.me/5493512589176" class="btn-wa">WhatsApp Consultas</a>
 
 </body>
 </html>
